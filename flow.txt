@@ -1,0 +1,56 @@
+
+## 设置字段信息
+
+chart.source(data,{
+  visitor: {min: 0}
+});
+
+## 常见图
+
+chart.point().position('action*visitor');
+chart.line().position('action*visitor');
+chart.area().position('action*visitor');
+chart.interval().position('action*visitor').color('action');
+
+## 坐标系的影响
+
+chart.coord('polar');
+
+## 饼图
+
+chart.coord('theta')
+chart.intervalStack().position(Stat.summary.percent('visitor')).color('action');
+
+## 环图
+
+chart.coord('theta',{inner: 0.4});
+chart.intervalStack().position(Stat.summary.percent('visitor')).color('action');
+
+## 漏斗图
+
+chart.intervalSymmetric().position('action*visitor').color('action');
+chart.intervalSymmetric().position('action*visitor').color('action').shape('funnel');
+
+
+## 增加一个维度
+
+chart.point().position('action*visitor').color('site');
+chart.line().position('action*visitor').color('site');
+chart.interval().position('action*visitor').color('site');
+chart.intervalStack().position('action*visitor').color('site');
+chart.intervalDodge().position('action*visitor').color('site');
+
+## 对称漏斗图
+
+chart.axis(false);
+
+chart.facet(['site'],{
+  type: 'mirror',
+  transpose: true,
+  margin: 0
+});
+
+chart.interval()
+  .position('action*visitor')
+  .color('action')
+  .shape('funnel');

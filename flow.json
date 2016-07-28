@@ -1,0 +1,8 @@
+[
+  {"action":"访问","visitor":500},
+  {"action":"浏览","visitor":400},
+  {"action":"交互","visitor":300},
+  {"action":"下单","visitor":200},
+  {"action":"付款","visitor":100}
+]
+        

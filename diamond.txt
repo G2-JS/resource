@@ -1,0 +1,88 @@
+
+## 常见图表
+
+### 基本点图
+* chart.point().position('carat*price');
+* chart.point().position('carat*price').color('color');
+* chart.point().position('carat*price').color('color').shape('clarity');
+
+### 分布
+* chart.point().position('clarity').color('clarity');
+* chart.pointStack().position('clarity').color('clarity').size(0.4);
+* chart.pointJitter().position('clarity').color('clarity');
+* chart.pointDodge().position('clarity').color('cut').size(1.2)
+* chart.pointJitter().position('cut*depth').color('cut')
+
+
+### 柱状图
+
+* chart.interval().position(Stat.summary.mean('cut*price')).color('cut');
+* chart.interval().position(Stat.summary.mean('clarity*price')).color('clarity');
+* chart.interval().position(Stat.summary.mean('color*price')).color('color');
+
+### 折线、区域
+
+* chart.line().position(Stat.summary.mean('cut*price'));
+* chart.area().position(Stat.summary.mean('cut*price'));
+
+
+### 分布密度
+* chart.intervalStack().position(Stat.summary.percent(Stat.summary.count('cut')));
+* chart.interval().position(Stat.summary.percent(Stat.summary.count(Stat.bin.rect('depth')))).color('red');
+* chart.line().position(Stat.summary.percent(Stat.summary.count(Stat.bin.rect('depth')))).color('red');
+* chart.line().position(Stat.summary.accumulate(Stat.summary.percent(Stat.summary.count(Stat.bin.rect('depth',0.03))))).color('red').shape('smooth')
+
+
+### 饼图
+
+* chart.interval().position(Stat.summary.proportion()).color('cut');
+* chart.intervalStack().position(Stat.summary.proportion()).color('cut');
+* chart.intervalStack().position(Stat.summary.percent(Stat.summary.count())).color('cut');
+* chart.intervalStack().position(Stat.summary.percent(Stat.summary.mean('price'))).color('cut');
+
+#### 环图
+
+* chart.coord('theta',{inner: 0.4});
+* chart.intervalStack().position(Stat.summary.proportion()).color('cut');
+
+
+### 马赛克图
+
+* chart.polygon().position(Stat.bin.rect('carat*price',0.01)).color(Stat.summary.count(),'lightness');
+* chart.polygon().position(Stat.bin.rect('cut*carat',0.01)).color(Stat.summary.count(),'lightness');
+* chart.polygon().position('cut*color').color(Stat.summary.count(),'lightness');
+* chart.polygon().position(Stat.bin.hex('carat*price',0.03)).color(Stat.summary.count(),'blue');
+
+
+### 箱型图
+
+* chart.schema().position(Stat.bin.quantile.letter('cut*price')).shape('box');
+* chart.schema().position(Stat.bin.quantile.letter('price')).shape('box');
+* chart.schemaDodge().position(Stat.bin.quantile.letter('cut*price')).shape('box').color('color');
+* chart.schemaDodge().position(Stat.bin.quantile.letter('price')).shape('box').color('color')
+
+### guide
+
+* chart.guide().line([1,4000],[2,5000]);
+* chart.guide().tag([1,0],[1,20000],'均值');
+* chart.guide().rect([1,0],[2,20000]);
+
+
+### 分面
+
+* chart.facet(['color','clarity']);
+* chart.facet(['color'],{type: 'list',cols: 3});
+* chart.facet(['color'],{type: 'polar'});
+* chart.facet(['color'],{type: 'tree',line: {stroke: '#00a3d7'}});
+
+
+### regress
+
+ chart.point().position('carat*price');
+ chart.line().position(Stat.smooth.linear('carat*price'));
+
+### 热力图
+* chart.heatmap().position(Stat.density.kernel.gaussian('carat*price'));
+
+
+

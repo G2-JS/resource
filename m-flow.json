@@ -1,0 +1,15 @@
+[
+  {"action":"访问","visitor":500, "site": "A"},
+  {"action":"浏览","visitor":400, "site": "A"},
+  {"action":"交互","visitor":300, "site": "A"},
+  {"action":"下单","visitor":200, "site": "A"},
+  {"action":"付款","visitor":100, "site": "A"},
+
+  {"action":"访问","visitor":450, "site": "B"},
+  {"action":"浏览","visitor":350, "site": "B"},
+  {"action":"交互","visitor":320, "site": "B"},
+  {"action":"下单","visitor":250, "site": "B"},
+  {"action":"付款","visitor":80, "site": "B"}
+  
+]
+        
